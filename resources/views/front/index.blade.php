@@ -299,15 +299,6 @@
                                 @endif
                                 </span></button>
                                 </form>
-                                {{-- <style type="text/css" media="screen">
-                                    .link{
-                                        border: none;
-                                        outline: none;
-                                        cursor: pointer;
-                                        background-color: white;
-                                        color:#0000EE;
-                                    }
-                                </style> --}}
                             </li>
                             <li>
                                 <a href="/cogitech/details/promo/{{ $prod->id }}"><i class="flaticon-view"></i></a>

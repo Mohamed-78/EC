@@ -6,6 +6,10 @@
     Options +FollowSymLinks
     RewriteEngine On
     RewriteBase /
+    
+    #Redirect to HTTPS
+    RewriteCond %{HTTP_HOST} !^www\.karokoo\.com$ [NC]
+    RewriteRule ^(.*)$ https://www.karokoo.com/$1 [R=301,L]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
