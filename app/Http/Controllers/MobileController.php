@@ -32,6 +32,16 @@ class MobileController extends Controller
        return response()->json($annonces);
     }
 
+    public function promo(){
+        $promo = DB::table('promos')
+       ->join('categories', 'categories.id', '=', 'promos.categorie_id')
+       ->where('categorie_id',5)
+       ->select('categories.libelle AS categorie','promos.titre','promos.reduction','promos.photo','promos.photos','promos.description','promos.ancPrice','promos.newPrice','promos.date_debut','promos.date_fin','produits.id','promos.created_at')
+       ->orderBy('promos.created_at','desc')
+       ->paginate(5);
+       return response()->json($promo);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -22,6 +22,7 @@ use Illuminate\Http\Request;
 Route::group(['prefix' => 'v1'], function(){
 
 	Route::get('annonces', 'MobileController@index');
+	Route::get('promo', 'MobileController@promo');
 	Route::get('all/picture', 'MobileController@allPicture');
 	Route::get('produits', 'MobileController@produits');
 	Route::get('promotions', 'MobileController@promotions');
