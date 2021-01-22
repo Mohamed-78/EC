@@ -35,11 +35,20 @@ class MobileController extends Controller
     public function promo(){
         $promo = DB::table('promos')
        ->join('categories', 'categories.id', '=', 'promos.categorie_id')
-       ->where('categorie_id',5)
-       ->select('categories.libelle AS categorie','promos.titre','promos.reduction','promos.photo','promos.photos','promos.description','promos.ancPrice','promos.newPrice','promos.date_debut','promos.date_fin','produits.id','promos.created_at')
+       ->select('categories.libelle AS categorie','promos.titre','promos.reduction','promos.ancPrice','promos.newPrice','promos.photo','promos.photos','promos.description','promos.date_debut','promos.date_fin','promos.id','promos.created_at')
        ->orderBy('promos.created_at','desc')
        ->paginate(5);
        return response()->json($promo);
+    }
+
+    public function allRouteur(){
+        $annonces = DB::table('produits')
+       ->join('categories', 'categories.id', '=', 'produits.categorie_id')
+       ->where('categorie_id',5)
+       ->select('categories.libelle AS categorie','produits.titre','produits.prix','produits.photo','produits.photos','produits.description','produits.id','produits.created_at')
+       ->orderBy('produits.created_at','desc')
+       ->paginate(10);
+       return response()->json($annonces);
     }
 
     /**
