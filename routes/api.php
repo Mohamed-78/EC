@@ -30,5 +30,5 @@ Route::group(['prefix' => 'v1'], function(){
 	Route::get('detailsPromo/{id}', 'MobileController@singlePromo');
 	Route::get('types/{categorie}', 'MobileController@typeAnnonces');
 	Route::GET('/auth/connexion/{email}/{password}', 'MobileController@loginget');
-	Route::POST('/auth/register', 'MobileController@register');
+	Route::GET('/auth/register/{name}/{email}/{password}', 'MobileController@register');
 });

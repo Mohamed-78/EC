@@ -153,9 +153,9 @@ class MobileController extends Controller
 
     }
 
-    public function register(Request $request)
+    public function register($name,$email, $password)
     {
-      $verif = User::where('email',$request->email)->get();
+      $verif = User::where('email',$email)->get();
       if ($verif and $verif->count()>0) {
 
         return response()->json([
@@ -167,9 +167,9 @@ class MobileController extends Controller
       }else
         {
           $inscription = new User();
-          $inscription->name = $request->name;
-          $inscription->email = $request->email;
-          $inscription->password = Hash::make($request->password);
+          $inscription->name = $name;
+          $inscription->email = $email;
+          $inscription->password = Hash::make($password);
           $retour = $inscription->save();
         }
 
